@@ -16,8 +16,10 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Center(
@@ -38,7 +40,7 @@ class LoginPage extends StatelessWidget {
                 'Welcome Freshers!',
                 style: TextStyle(
                   color: Colors.grey[700],
-                  fontSize: 16,
+                  fontSize: screenWidth*0.02,
                 ),
               ),
 
@@ -51,7 +53,7 @@ class LoginPage extends StatelessWidget {
                 obscureText: false,
               ),
 
-              const SizedBox(height: 10),
+              SizedBox(height: screenHeight * 0.02),
 
               // password textfield
               MyTextField(
@@ -60,11 +62,11 @@ class LoginPage extends StatelessWidget {
                 obscureText: true,
               ),
 
-              const SizedBox(height: 10),
+              SizedBox(height: screenHeight * 0.02),
 
               // forgot password?
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.032),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -76,79 +78,80 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 25),
+              SizedBox(height: screenHeight * 0.04),
 
               // sign in button
               MyButton(
                 onTap: signUserIn,
               ),
 
-              const SizedBox(height: 50),
+              SizedBox(height: screenHeight * 0.05),
 
               // or continue with
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.032),
                 child: Row(
                   children: [
-                    Expanded(
+                     Expanded(
                       child: Divider(
-                        thickness: 0.5,
-                        color: Colors.grey[400],
+                        thickness: screenWidth * 0.00082,
+                        color: Colors.grey[700],
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      padding:  EdgeInsets.symmetric(horizontal: screenWidth*0.01),
                       child: Text(
                         'Or continue with',
                         style: TextStyle(color: Colors.grey[700]),
                       ),
                     ),
-                    Expanded(
+                     Expanded(
                       child: Divider(
-                        thickness: 0.5,
-                        color: Colors.grey[400],
+                        thickness: screenWidth * 0.00082,
+                        color: Colors.grey[700],
                       ),
                     ),
                   ],
                 ),
               ),
 
-              const SizedBox(height: 50),
+              SizedBox(height: screenHeight * 0.06),
 
               // google + apple sign in buttons
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // google button
-                  SquareTile(imagePath: 'lib/images/google.png'),
+                  const SquareTile(imagePath: 'lib/images/google.png'),
 
-                  SizedBox(width: 25),
+                  SizedBox(width: screenWidth*0.02),
 
                   // apple button
-                  SquareTile(imagePath: 'lib/images/apple.png')
+                  const SquareTile(imagePath: 'lib/images/apple.png')
                 ],
               ),
 
-              const SizedBox(height: 50),
+              // SizedBox(height: screenHeight * 0.06),
 
               // not a member? register now
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Not a member?',
+                    'Not a member?  ',
                     style: TextStyle(color: Colors.grey[700]),
                   ),
-                  const SizedBox(width: 4),
+                  SizedBox(height: screenHeight * 0.005),
                   const Text(
                     'Register now',
                     style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.bold,
                     ),
-                  ),
+                  )
                 ],
-              )
+              ),
+              SizedBox(height: screenHeight * 0.007),
             ],
           ),
         ),
