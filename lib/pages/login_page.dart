@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/my_button.dart';
+import 'landing.dart';
 import 'package:flutter_application_1/components/my_textfield.dart';
 import 'package:flutter_application_1/components/square_tile.dart';
+
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -19,7 +20,7 @@ class LoginPage extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      resizeToAvoidBottomInset : false,
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Center(
@@ -40,7 +41,7 @@ class LoginPage extends StatelessWidget {
                 'Welcome Freshers!',
                 style: TextStyle(
                   color: Colors.grey[700],
-                  fontSize: screenWidth*0.02,
+                  fontSize: screenWidth * 0.02,
                 ),
               ),
 
@@ -80,20 +81,24 @@ class LoginPage extends StatelessWidget {
 
               SizedBox(height: screenHeight * 0.04),
 
-              Container(
-                height: screenHeight*0.06,
-                width: screenWidth*0.34,
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                  borderRadius: BorderRadius.circular(15)
-                ),
-                child: const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Sign In',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Landing()),
+                  );
+                },
+                child: Container(
+                  height: screenHeight * 0.06,
+                  width: screenWidth * 0.34,
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: const Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Sign In',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ),
                 ),
@@ -106,20 +111,21 @@ class LoginPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.032),
                 child: Row(
                   children: [
-                     Expanded(
+                    Expanded(
                       child: Divider(
                         thickness: screenWidth * 0.00082,
                         color: Colors.grey[700],
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: screenWidth*0.01),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.01),
                       child: Text(
                         'Or continue with',
                         style: TextStyle(color: Colors.grey[700]),
                       ),
                     ),
-                     Expanded(
+                    Expanded(
                       child: Divider(
                         thickness: screenWidth * 0.00082,
                         color: Colors.grey[700],
@@ -132,13 +138,13 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: screenHeight * 0.06),
 
               // google + apple sign in buttons
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // google button
                   const SquareTile(imagePath: 'lib/images/google.png'),
 
-                  SizedBox(width: screenWidth*0.02),
+                  SizedBox(width: screenWidth * 0.02),
 
                   // apple button
                   const SquareTile(imagePath: 'lib/images/apple.png')
