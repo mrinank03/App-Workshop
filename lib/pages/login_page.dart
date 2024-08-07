@@ -80,9 +80,23 @@ class LoginPage extends StatelessWidget {
 
               SizedBox(height: screenHeight * 0.04),
 
-              // sign in button
-              MyButton(
-                onTap: signUserIn,
+              Container(
+                height: screenHeight*0.06,
+                width: screenWidth*0.34,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                  borderRadius: BorderRadius.circular(15)
+                ),
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Sign In',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
+                  ),
+                ),
               ),
 
               SizedBox(height: screenHeight * 0.05),
