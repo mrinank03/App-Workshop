@@ -85,7 +85,7 @@ class LoginPage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Landing()),
+                    MaterialPageRoute(builder: (context) => LandingPage()),
                   );
                 },
                 child: Container(
@@ -119,7 +119,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     Padding(
                       padding:
-                          EdgeInsets.symmetric(horizontal: screenWidth * 0.01),
+                      EdgeInsets.symmetric(horizontal: screenWidth * 0.01),
                       child: Text(
                         'Or continue with',
                         style: TextStyle(color: Colors.grey[700]),
