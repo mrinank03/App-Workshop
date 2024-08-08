@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_application_1/pages/login_page.dart';
+import 'reminder.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -70,17 +70,37 @@ class LandingPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: GestureDetector(
-        onTap: () {
-          Navigator.pop(context);
-        },
-        child: Container(
-          height: screenHeight * 0.08,
-          color: Colors.black.withOpacity(0.8),
-          child: Icon(
-            Icons.home,
-            size: screenWidth * 0.08,
-            color: Colors.white,
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.black.withOpacity(0.8),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.home,
+                  size: screenWidth * 0.08,
+                  color: Colors.white,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ReminderPage()),
+                  );
+                },
+                child: Icon(
+                  Icons.calendar_today,
+                  size: screenWidth * 0.08,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
         ),
       ),
